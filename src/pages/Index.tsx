@@ -27,7 +27,7 @@ const Index = () => {
   const [isSidebarHovered, setIsSidebarHovered] = useState(false); // Track sidebar hover state
 
   const handleLogin = (email: string, password: string) => {
-    if (email === 'admin@example.com' && password === 'admin123') {
+    if (email === 'spectreomar242003@gmail.com' && password === 'admin123') {
       setIsAuthenticated(true);
     } else {
       alert('Invalid credentials. Please use the demo credentials provided.');

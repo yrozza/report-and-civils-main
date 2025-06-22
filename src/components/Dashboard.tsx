@@ -1,44 +1,124 @@
-
 import { Users, FileText, AlertTriangle, TrendingUp, Calendar } from 'lucide-react';
+
+const mockUsers = [
+  {
+    id: 1,
+    firstName: 'youssef',
+    lastName: 'rozza',
+    email: 'youssefroza3090@gmail.com',
+    profilePic: 'https://th.bing.com/th/id/OIP.hGSCbXlcOjL_9mmzerqAbQHaHa?rs=1&pid=ImgDetMain',
+    birthDate: '2002-12-08',
+    phoneNumber: '+1225092787',
+    joinedAgo: '5 hours ago',
+  },
+  {
+    id: 2,
+    firstName: 'Jane',
+    lastName: 'Smith',
+    email: 'jane.smith@example.com',
+    profilePic: 'https://images.unsplash.com/photo-1649972904349-6e44c42644a7?w=100&h=100&fit=crop&crop=face',
+    birthDate: '1988-12-22',
+    phoneNumber: '+1987654321',
+    joinedAgo: '10 hours ago',
+  },
+  {
+    id: 3,
+    firstName: 'Mike',
+    lastName: 'Johnson',
+    email: 'mike.johnson@example.com',
+    profilePic: 'https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?w=100&h=100&fit=crop&crop=face',
+    birthDate: '1992-08-10',
+    phoneNumber: '+1122334455',
+    joinedAgo: '15 hours ago',
+  },
+];
 
 const Dashboard = () => {
   const stats = [
     {
       title: 'Total Users',
-      value: '2,543',
+      value: '121',
       icon: Users,
-      color: 'from-blue-500 to-blue-600'
+      color: 'from-blue-500 to-blue-600',
     },
     {
       title: 'Total Civils',
-      value: '1,247',
+      value: '8',
       icon: FileText,
-      color: 'from-green-500 to-green-600'
+      color: 'from-green-500 to-green-600',
     },
     {
       title: 'Total Events',
-      value: '456',
+      value: '6',
       icon: Calendar,
-      color: 'from-orange-500 to-orange-600'
+      color: 'from-orange-500 to-orange-600',
     },
     {
       title: 'Total Posts',
-      value: '8,921',
+      value: '17',
       icon: TrendingUp,
-      color: 'from-purple-500 to-purple-600'
+      color: 'from-purple-500 to-purple-600',
     },
     {
       title: 'Pending Reports',
       value: '3',
       icon: AlertTriangle,
-      color: 'from-red-500 to-red-600'
-    }
+      color: 'from-red-500 to-red-600',
+    },
   ];
 
+  const pendingCivils = [
+    {
+      id: 1,
+      civilName: 'Green Parks Community',
+      submittedDate: '2025-06-22',
+      civilImage: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=100&h=100&fit=crop',
+    },
+    {
+      id: 2,
+      civilName: 'Tech Education Hub',
+      submittedDate: '2025-06-22',
+      civilImage: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=100&h=100&fit=crop',
+    },
+  ];
+
+  // Random followers between 10-20 helper
+  const randomFollowers = () => Math.floor(Math.random() * 11) + 10;
+
   const topCivils = [
-    { id: 1, name: 'Green Parks Community', followers: 2340, image: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=100&h=100&fit=crop' },
-    { id: 2, name: 'Tech Education Hub', followers: 1890, image: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=100&h=100&fit=crop' },
-    { id: 3, name: 'Local Food Bank', followers: 1567, image: 'https://images.unsplash.com/photo-1593113598332-cd288d649433?w=100&h=100&fit=crop' }
+    {
+      id: 3,
+      name: 'semicolon',
+      followers: 100,
+      image: 'http://localhost:8080/src/assets/semicolon.jpg',
+      category: 'Programming',
+      description:
+        'Technical civil family that aims to improve the skills of students in the field of programming and technology.',
+      status: 'approved',
+      submittedDate: '2025-06-22',
+    },
+    {
+      id: 6,
+      name: 'Broca Project',
+      followers: "23",
+      image:
+        'https://th.bing.com/th/id/OIP.kWy3z0ifw1fcMQplJsJqcAHaEj?o=7rm=3&rs=1&pid=ImgDetMain',
+      category: 'Programming',
+      description: 'Innovative coding and AI research civil named after the brain’s speech center.',
+      status: 'approved',
+      submittedDate: '2025-06-19',
+    },
+    {
+      id: 7,
+      name: 'Western Organization',
+      followers: "15",
+      image:
+        'https://res.cloudinary.com/dvapijor2/image/upload/v1750629431/western_kempyd.jpg',
+      category: 'Medical',
+      description: 'Providing medical outreach and training in underserved western regions.',
+      status: 'approved',
+      submittedDate: '2025-06-18',
+    },
   ];
 
   return (
@@ -50,14 +130,19 @@ const Dashboard = () => {
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 mb-8">
         {stats.map((stat, index) => (
-          <div key={index} className="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
+          <div
+            key={index}
+            className="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden"
+          >
             <div className="p-6">
               <div className="flex items-center justify-between">
                 <div>
                   <p className="text-sm font-medium text-gray-600 mb-1">{stat.title}</p>
                   <p className="text-3xl font-bold text-gray-900">{stat.value}</p>
                 </div>
-                <div className={`w-12 h-12 bg-gradient-to-r ${stat.color} rounded-lg flex items-center justify-center`}>
+                <div
+                  className={`w-12 h-12 bg-gradient-to-r ${stat.color} rounded-lg flex items-center justify-center`}
+                >
                   <stat.icon className="w-6 h-6 text-white" />
                 </div>
               </div>
@@ -66,22 +151,29 @@ const Dashboard = () => {
         ))}
       </div>
 
-      {/* Recent Activity */}
+      {/* Recent Activity Grid */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        {/* Recent User Registrations */}
         <div className="bg-white rounded-xl shadow-sm border border-gray-200">
           <div className="p-6 border-b border-gray-200">
             <h2 className="text-lg font-semibold text-gray-900">Recent User Registrations</h2>
           </div>
           <div className="p-6">
             <div className="space-y-4">
-              {[1, 2, 3, 4].map((item) => (
-                <div key={item} className="flex items-center space-x-4">
-                  <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center">
-                    <span className="text-white text-sm font-medium">U{item}</span>
-                  </div>
+              {mockUsers.map((user) => (
+                <div key={user.id} className="flex items-center space-x-4">
+                  <img
+                    src={user.profilePic}
+                    alt={`${user.firstName} ${user.lastName}`}
+                    className="w-10 h-10 rounded-full object-cover"
+                  />
                   <div className="flex-1">
-                    <p className="text-sm font-medium text-gray-900">User {item}</p>
-                    <p className="text-xs text-gray-500">Joined 2 hours ago</p>
+                    <p className="text-sm font-medium text-gray-900">
+                      {user.firstName} {user.lastName}
+                    </p>
+                    <p className="text-xs text-gray-500">
+                      Joined {user.joinedAgo} • {user.email}
+                    </p>
                   </div>
                 </div>
               ))}
@@ -89,21 +181,24 @@ const Dashboard = () => {
           </div>
         </div>
 
+        {/* Pending Civil Requests */}
         <div className="bg-white rounded-xl shadow-sm border border-gray-200">
           <div className="p-6 border-b border-gray-200">
             <h2 className="text-lg font-semibold text-gray-900">Pending Civil Requests</h2>
           </div>
           <div className="p-6">
             <div className="space-y-4">
-              {[1, 2, 3, 4].map((item) => (
-                <div key={item} className="flex items-center justify-between">
+              {pendingCivils.map((civil) => (
+                <div key={civil.id} className="flex items-center justify-between">
                   <div className="flex items-center space-x-4">
-                    <div className="w-10 h-10 bg-gradient-to-r from-green-500 to-teal-600 rounded-full flex items-center justify-center">
-                      <span className="text-white text-sm font-medium">C{item}</span>
-                    </div>
+                    <img
+                      src={civil.civilImage}
+                      alt={civil.civilName}
+                      className="w-10 h-10 rounded-full object-cover"
+                    />
                     <div>
-                      <p className="text-sm font-medium text-gray-900">Civil Request {item}</p>
-                      <p className="text-xs text-gray-500">Submitted today</p>
+                      <p className="text-sm font-medium text-gray-900">{civil.civilName}</p>
+                      <p className="text-xs text-gray-500">Submitted: {civil.submittedDate}</p>
                     </div>
                   </div>
                   <span className="px-2 py-1 text-xs font-medium bg-yellow-100 text-yellow-800 rounded-full">
@@ -115,6 +210,7 @@ const Dashboard = () => {
           </div>
         </div>
 
+        {/* Most Followed Civils */}
         <div className="bg-white rounded-xl shadow-sm border border-gray-200">
           <div className="p-6 border-b border-gray-200">
             <h2 className="text-lg font-semibold text-gray-900">Most Followed Civils</h2>

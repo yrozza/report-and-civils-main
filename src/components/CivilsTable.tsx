@@ -1,6 +1,5 @@
-
 import { useState } from 'react';
-import { Check, X, Eye, Clock } from 'lucide-react';
+import { Check, X, Clock } from 'lucide-react';
 
 interface CivilRequest {
   id: number;
@@ -21,7 +20,7 @@ const CivilsTable = () => {
       civilImage: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=100&h=100&fit=crop',
       description: 'A community focused on maintaining and improving local parks and green spaces.',
       status: 'pending',
-      submittedDate: '2024-01-15'
+      submittedDate: '2025-06-22'
     },
     {
       id: 2,
@@ -30,27 +29,118 @@ const CivilsTable = () => {
       civilImage: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=100&h=100&fit=crop',
       description: 'Providing free coding and technology education to underserved communities.',
       status: 'pending',
-      submittedDate: '2024-01-14'
+      submittedDate: '2025-06-22'
     },
     {
       id: 3,
-      civilName: 'Local Food Bank',
-      category: 'Social Service',
-      civilImage: 'https://images.unsplash.com/photo-1593113598332-cd288d649433?w=100&h=100&fit=crop',
-      description: 'Supporting families in need with food assistance and community meals.',
+      civilName: 'semicolon',
+      category: 'Programming',
+      civilImage: 'http://localhost:8080/src/assets/semicolon.jpg',
+      description: 'Technical civil family that aims to improve the skills of students in the field of programming and technology.',
       status: 'approved',
-      submittedDate: '2024-01-12'
+      submittedDate: '2025-06-22'
+    },
+    {
+      id: 4,
+      civilName: 'Safwa Science',
+      category: 'Programming',
+      civilImage: 'https://th.bing.com/th/id/OIP.4Vqkpj1Wk9xDydHmkPY6MwHaHa?rs=1&pid=ImgDetMain',
+      description: 'Community for emerging programmers passionate about science-driven tech.',
+      status: 'approved',
+      submittedDate: '2025-06-21'
+    },
+    {
+      id: 5,
+      civilName: 'Hacker Rank',
+      category: 'Programming',
+      civilImage: 'https://res.cloudinary.com/dvapijor2/image/upload/v1750629431/hackerrank_xecw5h.jpg',
+      description: 'Competitive programming group to boost skills through challenge-based learning.',
+      status: 'approved',
+      submittedDate: '2025-06-20'
+    },
+    {
+      id: 6,
+      civilName: 'Broca Project',
+      category: 'Programming',
+      civilImage: 'https://th.bing.com/th/id/OIP.kWy3z0ifw1fcMQplJsJqcAHaEj?o=7rm=3&rs=1&pid=ImgDetMain',
+      description: 'Innovative coding and AI research civil named after the brain’s speech center.',
+      status: 'approved',
+      submittedDate: '2025-06-19'
+    },
+    {
+      id: 7,
+      civilName: 'Western Organization',
+      category: 'Medical',
+      civilImage: 'https://res.cloudinary.com/dvapijor2/image/upload/v1750629431/western_kempyd.jpg',
+      description: 'Providing medical outreach and training in underserved western regions.',
+      status: 'approved',
+      submittedDate: '2025-06-18'
+    },
+    {
+      id: 8,
+      civilName: 'Dark Lord Society',
+      category: 'Unknown',
+      civilImage: 'https://images.unsplash.com/photo-1558981009-94e6610f1c6e?w=100&h=100&fit=crop',
+      description: 'Suspicious group with unclear motives and concerning activities.',
+      status: 'blocked',
+      submittedDate: '2025-06-17'
+    },
+    {
+      id: 9,
+      civilName: 'Chaos Hackers Crew',
+      category: 'Cyber Crime',
+      civilImage: 'https://images.unsplash.com/photo-1510511459019-5dda7724fd87?w=100&h=100&fit=crop',
+      description: 'Group attempting to bypass platform security under the guise of innovation.',
+      status: 'blocked',
+      submittedDate: '2025-06-16'
+    },
+    {
+      id: 10,
+      civilName: 'Resala',
+      category: 'Volunteering',
+      civilImage: 'https://res.cloudinary.com/dvapijor2/image/upload/v1750629430/resala_dvpch8.jpg',
+      description: 'A volunteering civil dedicated to social development and humanitarian aid.',
+      status: 'approved',
+      submittedDate: '2025-06-23'
+    },
+    // Added new civils with approved status
+    {
+      id: 11,
+      civilName: 'Upgrade',
+      category: 'Soft Skills',
+      civilImage: 'https://res.cloudinary.com/dvapijor2/image/upload/v1750632775/upgrade_groe15.png',
+      description: 'A project focused on enhancing personal and professional growth through technology.',
+      status: 'approved',
+      submittedDate: '2025-06-25'
+    },
+    {
+      id: 12,
+      civilName: 'IEEE',
+      category: 'Programming',
+      civilImage: 'https://res.cloudinary.com/dvapijor2/image/upload/v1750632784/ieee_ham6af.jpg',
+      description: 'A civil for engineers and innovators committed to advancing technology and society.',
+      status: 'approved',
+      submittedDate: '2025-06-24'
+    },
+    {
+      id: 13,
+      civilName: 'Techne Summit',
+      category: 'Technical',
+      civilImage: 'https://res.cloudinary.com/dvapijor2/image/upload/v1750632938/techne_syygaf.png',
+      description: 'An annual summit bringing together top minds in technology and innovation.',
+      status: 'approved',
+      submittedDate: '2025-06-23'
     }
   ]);
 
   const handleApprove = (id: number) => {
-    setCivils(civils.map(civil => 
+    setCivils(civils.map(civil =>
       civil.id === id ? { ...civil, status: 'approved' as const } : civil
     ));
   };
 
   const handleBlock = (id: number) => {
-    setCivils(civils.map(civil => 
+    setCivils(civils.map(civil =>
       civil.id === id ? { ...civil, status: 'blocked' as const } : civil
     ));
   };
@@ -119,10 +209,6 @@ const CivilsTable = () => {
                     <p className="text-sm text-gray-900 max-w-xs truncate">
                       {civil.description}
                     </p>
-                    <button className="text-blue-600 hover:text-blue-800 text-xs mt-1 flex items-center space-x-1">
-                      <Eye className="w-3 h-3" />
-                      <span>View full</span>
-                    </button>
                   </td>
                   <td className="py-4 px-6">
                     <span className={`inline-flex items-center space-x-1 px-3 py-1 rounded-full text-sm font-medium ${getStatusBadge(civil.status)}`}>
@@ -131,7 +217,7 @@ const CivilsTable = () => {
                     </span>
                   </td>
                   <td className="py-4 px-6">
-                    {civil.status === 'pending' && (
+                    {civil.status === 'pending' ? (
                       <div className="flex space-x-2">
                         <button
                           onClick={() => handleApprove(civil.id)}
@@ -148,8 +234,7 @@ const CivilsTable = () => {
                           <span>Block</span>
                         </button>
                       </div>
-                    )}
-                    {civil.status !== 'pending' && (
+                    ) : (
                       <span className="text-sm text-gray-500">No actions available</span>
                     )}
                   </td>

@@ -10,7 +10,7 @@ function Post() {
   const userName = "semicolon";
   const userImage = semi; // Static user image
   const timestamp = "6 hours ago"; // Static timestamp
-  const text = "This is a static post. No dynamic interactions."; // Static post text
+  const text = "organization and logistics . "; // Static post text
   const images = [
     post1, // Static image
   ];

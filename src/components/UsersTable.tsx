@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Search, MoreVertical, Mail, Phone, Calendar } from 'lucide-react';
 
@@ -14,40 +13,118 @@ interface User {
 
 const UsersTable = () => {
   const [searchTerm, setSearchTerm] = useState('');
-  
+
   const mockUsers: User[] = [
     {
-      id: 1,
-      firstName: 'John',
-      lastName: 'Doe',
-      email: 'john.doe@example.com',
-      profilePic: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=100&h=100&fit=crop&crop=face',
-      birthDate: '1990-05-15',
-      phoneNumber: '+1234567890'
+      id: 10,
+      firstName: 'Youssef',
+      lastName: 'Rozza',
+      email: 'youssefroza3090@gmail.com',
+      profilePic:
+        'https://th.bing.com/th/id/OIP.hGSCbXlcOjL_9mmzerqAbQHaHa?rs=1&pid=ImgDetMain',
+      birthDate: '2002-12-08',
+      phoneNumber: '+01001496987',
     },
     {
-      id: 2,
+      id: 8,
       firstName: 'Jane',
       lastName: 'Smith',
       email: 'jane.smith@example.com',
-      profilePic: 'https://images.unsplash.com/photo-1649972904349-6e44c42644a7?w=100&h=100&fit=crop&crop=face',
+      profilePic:
+        'https://images.unsplash.com/photo-1649972904349-6e44c42644a7?w=100&h=100&fit=crop&crop=face',
       birthDate: '1988-12-22',
-      phoneNumber: '+1987654321'
+      phoneNumber: '+1987654321',
     },
     {
-      id: 3,
+      id: 9,
       firstName: 'Mike',
       lastName: 'Johnson',
       email: 'mike.johnson@example.com',
-      profilePic: 'https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?w=100&h=100&fit=crop&crop=face',
+      profilePic:
+        'https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?w=100&h=100&fit=crop&crop=face',
       birthDate: '1992-08-10',
-      phoneNumber: '+1122334455'
-    }
+      phoneNumber: '+1122334455',
+    },
+    {
+      id: 1,
+      firstName: 'Emma',
+      lastName: 'Davis',
+      email: 'emma.davis@example.com',
+      profilePic:
+        'https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=100&h=100&fit=crop&crop=face',
+      birthDate: '1995-03-15',
+      phoneNumber: '+1444555666',
+    },
+    {
+      id: 2,
+      firstName: 'Liam',
+      lastName: 'Brown',
+      email: 'liam.brown@example.com',
+      profilePic:
+        'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&h=100&fit=crop&crop=face',
+      birthDate: '1990-11-01',
+      phoneNumber: '+1333222111',
+    },
+    {
+      id: 3,
+      firstName: 'Sophia',
+      lastName: 'Wilson',
+      email: 'sophia.wilson@example.com',
+      profilePic:
+        'https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=100&h=100&fit=crop&crop=face',
+      birthDate: '1998-06-25',
+      phoneNumber: '+1222888999',
+    },
+    {
+      id: 4,
+      firstName: 'Noah',
+      lastName: 'Martinez',
+      email: 'noah.martinez@example.com',
+      profilePic:
+        'https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=100&h=100&fit=crop&crop=face',
+      birthDate: '1993-07-30',
+      phoneNumber: '+1555777888',
+    },
+    {
+      id: 5,
+      firstName: 'Olivia',
+      lastName: 'Garcia',
+      email: 'olivia.garcia@example.com',
+      profilePic:
+        'https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?fit=crop&w=100&h=100&crop=faces',
+      birthDate: '1991-09-14',
+      phoneNumber: '+1444333222',
+    },
+    {
+      id: 6,
+      firstName: 'William',
+      lastName: 'Lee',
+      email: 'william.lee@example.com',
+      profilePic:
+        'https://images.unsplash.com/photo-1517841905240-472988babdf9?w=100&h=100&fit=crop&crop=face',
+      birthDate: '1987-04-09',
+      phoneNumber: '+1999444555',
+    },
+    {
+      id: 7,
+      firstName: 'Isabella',
+      lastName: 'Clark',
+      email: 'isabella.clark@example.com',
+      profilePic:
+        'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face',
+      birthDate: '1994-01-19',
+      phoneNumber: '+1888666777',
+    },
   ];
 
-  const filteredUsers = mockUsers.filter(user =>
-    `${user.firstName} ${user.lastName}`.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+  // Filter and sort users by id descending
+  const filteredUsers = mockUsers
+    .filter((user) =>
+      `${user.firstName} ${user.lastName}`
+        .toLowerCase()
+        .includes(searchTerm.toLowerCase())
+    )
+    .sort((a, b) => b.id - a.id);
 
   return (
     <div className="p-6">

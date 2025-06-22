@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Eye, EyeOff, Mail } from 'lucide-react';
 
@@ -54,7 +53,7 @@ const LoginForm = ({ onLogin }: LoginFormProps) => {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
-                  placeholder="admin@example.com"
+                  placeholder="Enter email address"
                   required
                 />
               </div>
@@ -82,6 +81,13 @@ const LoginForm = ({ onLogin }: LoginFormProps) => {
                 >
                   {showPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
                 </button>
+              </div>
+              
+              {/* Forgot Password Link */}
+              <div className="mt-2 text-right">
+                <a href="/forgot-password" className="text-sm text-blue-600 hover:text-blue-700">
+                  Forgot Password?
+                </a>
               </div>
             </div>
 
